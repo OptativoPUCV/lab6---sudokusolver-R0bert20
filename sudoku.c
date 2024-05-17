@@ -72,9 +72,11 @@ List* get_adj_nodes(Node* n){
          if (is_valid(n)){
             Node* adj = copy(n);
             pushBack(list, adj);
+         } else{
+            n->sudo[fila][i] = 0;
          }
-         n->sudo[fila][i] = 0;
       } 
+
       
    }
    return list;
