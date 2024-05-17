@@ -137,3 +137,15 @@ Fri 17 May 2024 11:39:05 PM UTC:
  tests:  10|0
 total_score: 70/70
 20e66e9
+Fri 17 May 2024 11:39:16 PM UTC: 
+ sudoku.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+test.c:245:5: error: redefinition of ‘main’
+  245 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+In file included from test.c:5:
+sudoku.c:165:5: note: previous definition of ‘main’ with type ‘int(int,  char **)’
+  165 | int main( int argc, char *argv[] ){
+      |     ^~~~
+Compilation failed
+444ffd0
