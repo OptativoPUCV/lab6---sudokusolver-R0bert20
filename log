@@ -82,3 +82,17 @@ Fri 17 May 2024 11:24:16 PM UTC:
  tests:  3|4
 total_score: 20/70
 af865ee
+Fri 17 May 2024 11:27:11 PM UTC: 
+ sudoku.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+In file included from test.c:5:
+sudoku.c: In function ‘is_final’:
+sudoku.c:116:13: error: expected identifier or ‘(’ before ‘=’ token
+  116 |    for (int = 0; i<9; i++){
+      |             ^
+sudoku.c:116:18: error: ‘i’ undeclared (first use in this function)
+  116 |    for (int = 0; i<9; i++){
+      |                  ^
+sudoku.c:116:18: note: each undeclared identifier is reported only once for each function it appears in
+Compilation failed
+fa6d01a

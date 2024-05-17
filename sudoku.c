@@ -46,7 +46,6 @@ void print_node(Node* n){
 int is_valid(Node* n){
    int i, j, num;
 
-
    for (i = 0; i < 9; i++) {
       int row[10] = {0};
       for (j = 0; j < 9; j++) {
@@ -114,8 +113,13 @@ List* get_adj_nodes(Node* n){
 
 
 int is_final(Node* n){
-   
-    return 0;
+   for (int = 0; i<9; i++){
+      for (int j=0; j<9; j++){
+         if (n->sudo[i][j] == 0)
+            return 0;
+      }
+   }
+   return 0;
 }
 
 Node* DFS(Node* initial, int* cont){
