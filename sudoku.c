@@ -67,12 +67,14 @@ List* get_adj_nodes(Node* n){
    if (fila == -1) return list;
 
    for (int num = 1; num <= 9; num++){
-      Node* newNode = copy(n);
-      newNode->sudo[fila][columna] = num;
-      if (is_valid(newNode)){
-         pushBack(list, newNode);
-      } else {
-         free(newNode);
+      for (int i = 0, j = 0; i < 9; i++, j++){
+         Node* newNode = copy(n);
+         newNode->sudo[i][j] = num;
+         if (is_valid(newNode)){
+            pushBack(list, newNode);
+         } else {
+            free(newNode);
+         }
       }
    }
 
