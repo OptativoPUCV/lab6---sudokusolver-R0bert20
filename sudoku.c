@@ -44,8 +44,52 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
+   int i, j, num;
 
-    return 1;
+
+   for (i = 0; i < 9; i++) {
+      int row[10] = {0};
+      for (j = 0; j < 9; j++) {
+         num = n->sudo[i][j];
+         if (num != 0) {
+            if (row[num] == 1) {
+               return 0; 
+            }
+            row[num] = 1;
+         }
+      }
+   }
+
+   for (j = 0; j < 9; j++) {
+      int col[10] = {0};
+      for (i = 0; i < 9; i++) {
+         num = n->sudo[i][j];
+         if (num != 0) {
+            if (col[num] == 1) {
+               return 0;
+            }
+            col[num] = 1;
+         }
+      }
+   }
+
+   for (int k = 0; k < 9; k++) {
+      int subgrid[10] = {0};
+      for (int p = 0; p < 9; p++) {
+         int row = 3 * (k / 3) + (p / 3);
+         int col = 3 * (k % 3) + (p % 3);
+         num = n->sudo[row][col];
+         if (num != 0) {
+            if (subgrid[num] == 1) {
+               return 0; 
+            }
+            subgrid[num] = 1;
+         }
+      }
+   }
+   
+    
+   return 1;
 }
 
 
@@ -63,6 +107,7 @@ List* get_adj_nodes(Node* n){
             aux->sudo[i][j] = 0;
             pushBack(list, aux);
          }
+         
       }
    }
    return list;
@@ -70,6 +115,7 @@ List* get_adj_nodes(Node* n){
 
 
 int is_final(Node* n){
+   
     return 0;
 }
 
