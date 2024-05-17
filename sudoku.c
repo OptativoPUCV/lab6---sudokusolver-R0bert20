@@ -66,6 +66,17 @@ List* get_adj_nodes(Node* n){
 
    if (fila == -1) return list;
 
+   for (int i = 0; i < 9; i++){
+      if (n->sudo[fila][i] == 0){
+         n->sudo[fila][i] = 1;
+         if (is_valid(n)){
+            Node* adj = copy(n);
+            pushBack(list, adj);
+         }
+         n->sudo[fila][i] = 0;
+      } 
+      
+   }
    return list;
 }
 
