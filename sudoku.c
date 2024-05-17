@@ -94,20 +94,26 @@ int is_valid(Node* n){
 List* get_adj_nodes(Node* n){
    List* list=createList();
    
-   for (int i=0; i<9; i++){
-      for (int j=0; j<9; j++){
-         if (n->sudo[i][j] == 0){
-            Node* aux = copy(n);
-            aux->sudo[i][j] = 1;
-            pushBack(list, aux);
-         } else {
-            Node* aux = copy(n);
-            aux->sudo[i][j] = 0;
-            pushBack(list, aux);
-         }
-         
+   int fila = -1, columna = -1;
+    
+   for (int i = 0; i < 9; i++) {
+      for (int j = 0; j < 9; j++) {
+         if (n->sudo[i][j] == 0) {
+            fila = i;
+            columna = j;
+            break;
+            }
       }
-   }
+      if (fila != -1) break;
+    }
+
+    if (fila == -1) return list;
+
+    for (int num = 1; num <= 9; num++) {
+        Node* newNode = copy(n);
+        newNode->sudo[fila][columna] = num;
+        pushBack(list, newNode);
+    }
    return list;
 }
 
