@@ -54,26 +54,17 @@ List* get_adj_nodes(Node* n){
 
    int fila = -1, columna = -1;
    for (int i = 0; i < 9; i++){
-      if (n->sudo[fila][columna] == 0){
-         fila = i;
-         columna = 0;
-         break;
+      for (int j = 0; j < 9; j++){
+         if (n->sudo[fila][columna] == 0){
+            fila = i;
+            columna = j;
+            break;
+         }
+         if (fila != -1) break;
       }
-      if (fila != -1) break;
    }
 
    if (fila == -1) return list;
-
-   /* for (int num = 1; num <= 9; ++num) {
-        Node* newNode = copy(n);
-        newNode->sudo[row][col] = num;
-        if (is_valid(newNode)) {
-            appendToList(list, newNode);
-        } else {
-            free(newNode);
-        }
-    }
-*/
 
    for (int num = 1; num < 9; num++){
       Node* newNode = copy(n);
