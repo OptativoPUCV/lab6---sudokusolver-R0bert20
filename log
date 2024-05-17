@@ -2,3 +2,17 @@ Fri 17 May 2024 10:49:49 PM UTC:
  tests:  0|5
 total_score: 0/70
 9ee3fdb
+Fri 17 May 2024 10:58:37 PM UTC: 
+ sudoku.c | 34 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 34 insertions(+)
+In file included from test.c:5:
+sudoku.c: In function ‘get_adj_nodes’:
+sudoku.c:57:24: error: array subscript -1 is below array bounds of ‘int[9]’ [-Werror=array-bounds]
+   57 |       if (n->sudo[fila][columna] == 0){
+      |           ~~~~~~~~~~~~~^~~~~~~~~
+sudoku.c:7:8: note: while referencing ‘sudo’
+    7 |    int sudo[9][9];
+      |        ^~~~
+cc1: all warnings being treated as errors
+Compilation failed
+6181d16
